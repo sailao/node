@@ -50,9 +50,9 @@ module.exports = function(app, db){
             {},
             {$setOnInsert:{
                 id: profile.id,
-                name: profile.displayName || 'John Doe',
-                photo: profile.photos[0].value || '',
-                email: profile.emails[0].value || 'No public email',
+                name: profile.displayName || 'No Name',
+                photo: profile.photos ? profile.photos[0].value : '',
+                email: profile.emails ? profile.emails[0].value : 'No public email',
                 created_on: new Date(),
                 provider: profile.provider || ''
             },$set:{
